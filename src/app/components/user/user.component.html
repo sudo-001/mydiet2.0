@@ -1,0 +1,30 @@
+<div class='flex flex-col items-center justify-start pt-4 bg-white/95 border h-[80vh] px-4 gap-8 text-xl'>
+
+    <!-- <div class="avatar">
+        <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+        </div>
+    </div> -->
+
+    <div class='w-full  flex flex-col'>
+        <p class=''>Your name :</p>
+        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" value={{fullName}} />
+    </div>
+
+    <div class='w-full  flex gap-4 items-center'>
+        <p class=''>Weight :</p>
+        <p class='font-bold'>{{weight}} kg</p>
+    </div>
+
+    <div class='w-full  flex gap-4 items-center'>
+        <p class=''>Height :</p>
+        <p class='font-bold'>{{height}} m</p>
+    </div>
+
+    <div class='w-full  flex gap-4 items-center'>
+        <p class=''>BMI :</p>
+        <p class='font-bold'>{{bmi}} kg/m²</p>
+    </div>
+
+    <button class="btn w-full btn-primary bg-blue-500 border-blue-500 rounded-lg font-bold">Update</button>
+</div>

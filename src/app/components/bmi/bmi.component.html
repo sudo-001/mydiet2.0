@@ -1,0 +1,45 @@
+<div
+    class='flex flex-col items-center justify-start bg-white/95 border h-[80vh] px-4 gap-8 text-xl overflow-y-scroll lg:px-20 lg:overflow-hidden lg:h-screen'>
+    <div class='flex w-full pt-4'>
+        <h1 class='text-xl font-normal'>Your BMI ( <span class='font-extrabold'>B</span>ody <span
+                class='font-extrabold'>M</span>ass <span class='font-extrabold'>I</span>ndex )</h1>
+    </div>
+    <form class='w-full flex flex-col gap-4 lg:flex-row lg:w-full lg:items-end lg:justify-around'>
+        <div class="form-control w-full max-w-xs">
+            <label class="label">
+                <span class="label-text">Weight</span>
+            </label>
+            <input type="number" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="weight"
+                [(ngModel)]="bmiObj.weight" />
+        </div>
+        <div class="form-control w-full max-w-xs">
+            <label class="label">
+                <span class="label-text">Height</span>
+            </label>
+            <input type="number" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="height"
+                [(ngModel)]="bmiObj.height" />
+        </div>
+        <button
+            class='btn btn-primary bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700 w-full text-white lg:w-1/3'
+            (click)="calculateAndSave()">Calculate</button>
+    </form>
+    <div class='border flex-1 w-full'>
+        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700 w-full overflow-y-scroll">
+            <li *ngFor="let bmi of bmis"
+                class="w-full flex shadow-lg py-4 px-4 rounded-xl justify-between my-2 lg:my-4 border">
+
+
+                <div>
+                    <h1 class="font-bold text-lg">{{bmi.weight}} kg | {{bmi.height}} m</h1>
+                    <p class="text-gray-600 text-sm">
+                        {{bmi.date}}
+                    </p>
+                </div>
+
+                <div>
+                    <p class="font-bold">{{bmi.bmi}} kcal</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

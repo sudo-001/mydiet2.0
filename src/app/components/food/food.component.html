@@ -1,0 +1,81 @@
+<div
+    class='relative flex flex-col items-center justify-start bg-white/95 border h-[80vh] px-4 gap-8 text-xl overflow-scroll '>
+    <div class='flex  gap-4 items-center mt-4 w-full'>
+        <label htmlFor="day">Day</label>
+        <input type='date' placeholder="Type here" class="input input-bordered w-full max-w-xs" (change)="handleDateFilterChange($event)">
+    </div>
+    <div class="divider my-0"></div>
+
+    <!-- {/* Food list section */} -->
+    <div class='flex-1 w-full overflow-y-scroll'>
+
+
+        <div
+            class="w-full max-w-md bg-white shadow sm:p-8 dark:bg-gray-800">
+            <div class="flex items-center justify-between mb-4 w-full rounded-xl border">
+                <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white py-4 px-4">Food saved</h5>
+            </div>
+            <div class="flow-root w-full">
+                <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700 w-full overflow-y-scroll">  
+                    <li *ngFor="let food of meals"  class="w-full flex shadow-lg py-4 px-4 rounded-xl justify-between my-2 lg:my-4 border">
+                        <div>
+                            <img src={{food.image}} alt="food" class="w-14 h-14 rounded-full">
+                        </div>
+
+                        <div>
+                            <h1 class="font-bold text-lg">{{food.name}}</h1>
+                            <p class="text-gray-600 text-sm">
+                                {{food.date}}
+                            </p>
+                        </div>
+
+                        <div>
+                            <p class="font-bold">{{food.calories}} kcal</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- {/* Flooting Adding btn */} -->
+    <!-- {/* Open the modal using document.getElementById('ID').showModal() method */} -->
+    <button class="btn btn-circle absolute bottom-4 right-4 rounded-full bg-blue-600" onclick="my_modal_5.showModal()">
+        <mat-icon class="text-white">add</mat-icon>
+    </button>
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <form class="modal-box flex flex-col gap-4">
+
+            <div class="form-control w-full max-w-xs">
+                <label htmlFor="FoodImage">Food image</label>
+                <input type="file" class="file-input file-input-bordered w-full max-w-xs" id='FoodImage' name="image" (change)="handleFileInput($event)" />
+            </div>
+
+            <div class="form-control w-full max-w-xs">
+                <label htmlFor='foodName'>
+                    Food Name
+                </label>
+                <input type="text" id='foodName' placeholder="Exple: Okok"
+                    class="input input-bordered w-full max-w-xs" name="name" [(ngModel)]="mealObj.name" />
+
+            </div>
+
+            <div class="form-control w-full max-w-xs">
+                <label htmlFor='foodCalory'>
+                    Food calory
+                </label>
+                <input type="number" id='foodCalory' placeholder="Exple: 150.8"
+                    class="input input-bordered w-full max-w-xs" name="calories" [(ngModel)]="mealObj.calories" />
+            </div>
+
+            <div class="modal-action">
+                <button class="btn btn-success bg-blue-500" (click)="addMeal()" >Add</button>
+                <form method="dialog">
+                    <!-- {/* if there is a button in form, it will close the modal */} -->
+                    <button class="btn btn-active">Close</button>
+                </form>
+            </div>
+        </form>
+    </dialog>
+</div>
